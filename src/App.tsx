@@ -8,13 +8,14 @@ import AnalyticsDashboard from "./components/AnalyticsDashboard";
 import CalendarDashboard from "./components/CalendarDashboard";
 import Navigation from "./components/Navigation";
 import BackendStatus from "./components/BackendStatus";
+import DatabaseTest from "./components/DatabaseTest";
 import { useTasks } from "./hooks/useTasks";
 import { useNotes } from "./hooks/useNotes";
 import { useAISuggestions } from "./hooks/useAISuggestions";
 
 function App() {
   const [activeView, setActiveView] = useState<
-    "dashboard" | "analytics" | "calendar"
+    "dashboard" | "analytics" | "calendar" | "database"
   >("dashboard");
 
   const {
@@ -128,6 +129,8 @@ function App() {
             tasks={tasks}
             onToggleComplete={toggleTaskComplete}
           />
+        ) : activeView === "database" ? (
+          <DatabaseTest />
         ) : (
           <AnalyticsDashboard
             tasks={tasks}

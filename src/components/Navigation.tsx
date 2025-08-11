@@ -1,6 +1,8 @@
 interface NavigationProps {
-  activeView: "dashboard" | "analytics" | "calendar";
-  onViewChange: (view: "dashboard" | "analytics" | "calendar") => void;
+  activeView: "dashboard" | "analytics" | "calendar" | "database";
+  onViewChange: (
+    view: "dashboard" | "analytics" | "calendar" | "database"
+  ) => void;
 }
 
 export default function Navigation({
@@ -11,6 +13,7 @@ export default function Navigation({
     { id: "dashboard" as const, label: "Dashboard", icon: "🏠" },
     { id: "calendar" as const, label: "Calendar", icon: "📅" },
     { id: "analytics" as const, label: "Analytics", icon: "📊" },
+    { id: "database" as const, label: "Database", icon: "🔗" },
   ];
 
   return (
