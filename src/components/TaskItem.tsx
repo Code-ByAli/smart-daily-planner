@@ -12,15 +12,15 @@ export default function TaskItem({
   onDeleteTask,
 }: TaskItemProps) {
   const priorityColors = {
-    low: "border-green-200 bg-green-50",
-    medium: "border-yellow-200 bg-yellow-50",
-    high: "border-red-200 bg-red-50",
+    low: "border-l-green-500 bg-card",
+    medium: "border-l-amber-500 bg-card", 
+    high: "border-l-red-500 bg-card",
   };
 
-  const priorityTextColors = {
-    low: "text-green-700",
-    medium: "text-yellow-700",
-    high: "text-red-700",
+  const priorityBadgeColors = {
+    low: "bg-green-500 text-white",
+    medium: "bg-amber-500 text-white",
+    high: "bg-red-500 text-white",
   };
 
   const formatDate = (dateString: string) => {
@@ -31,7 +31,7 @@ export default function TaskItem({
     <div
       className={`p-4 border-l-4 rounded-lg ${
         priorityColors[task.priority]
-      } mb-3`}
+      } mb-3 border border-border`}
     >
       <div className="flex items-start justify-between">
         <div className="flex items-start space-x-3">
@@ -39,12 +39,12 @@ export default function TaskItem({
             type="checkbox"
             checked={task.completed}
             onChange={() => onToggleComplete(task.id)}
-            className="mt-1 w-4 h-4 text-blue-600 rounded focus:ring-blue-500"
+            className="mt-1 w-4 h-4 text-primary rounded focus:ring-primary border-border"
           />
           <div className="flex-1">
             <h3
               className={`font-medium ${
-                task.completed ? "line-through text-gray-500" : "text-gray-900"
+                task.completed ? "line-through text-muted-foreground" : "text-card-foreground"
               }`}
             >
               {task.title}
@@ -53,8 +53,8 @@ export default function TaskItem({
               <p
                 className={`mt-1 text-sm ${
                   task.completed
-                    ? "line-through text-gray-400"
-                    : "text-gray-600"
+                    ? "line-through text-muted-foreground"
+                    : "text-muted-foreground"
                 }`}
               >
                 {task.description}
@@ -63,14 +63,14 @@ export default function TaskItem({
             <div className="mt-2 flex items-center space-x-4 text-xs">
               <span
                 className={`px-2 py-1 rounded-full ${
-                  priorityTextColors[task.priority]
-                } bg-current bg-opacity-20`}
+                  priorityBadgeColors[task.priority]
+                } border-0`}
               >
                 {task.priority.charAt(0).toUpperCase() + task.priority.slice(1)}{" "}
                 Priority
               </span>
               {task.dueDate && (
-                <span className="text-gray-500">
+                <span className="text-muted-foreground">
                   Due: {formatDate(task.dueDate)}
                 </span>
               )}
@@ -79,7 +79,7 @@ export default function TaskItem({
         </div>
         <button
           onClick={() => onDeleteTask(task.id)}
-          className="text-gray-400 hover:text-red-500 ml-2 transition-colors"
+          className="text-muted-foreground hover:text-destructive ml-2 transition-colors"
           aria-label="Delete task"
         >
           <svg

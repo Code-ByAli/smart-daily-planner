@@ -40,7 +40,7 @@ export default function AddTaskForm({ onAddTask }: AddTaskFormProps) {
           placeholder="Add a new task..."
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="w-full px-3 py-2 border border-border rounded-md bg-input text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
         />
       </div>
 
@@ -48,7 +48,7 @@ export default function AddTaskForm({ onAddTask }: AddTaskFormProps) {
         <select
           value={priority}
           onChange={(e) => setPriority(e.target.value as TaskPriority)}
-          className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="px-3 py-2 border border-border rounded-md bg-input text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
         >
           <option value="low">Low Priority</option>
           <option value="medium">Medium Priority</option>
@@ -59,7 +59,7 @@ export default function AddTaskForm({ onAddTask }: AddTaskFormProps) {
           type="date"
           value={dueDate}
           onChange={(e) => setDueDate(e.target.value)}
-          className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="px-3 py-2 border border-border rounded-md bg-input text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
         />
       </div>
 
@@ -69,14 +69,14 @@ export default function AddTaskForm({ onAddTask }: AddTaskFormProps) {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           rows={2}
-          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+          className="w-full px-3 py-2 border border-border rounded-md bg-input text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent resize-none"
         />
       </div>
 
       <button
         type="submit"
         disabled={!title.trim()}
-        className="w-full bg-blue-500 hover:bg-blue-700 disabled:bg-gray-300 text-white font-bold py-2 px-4 rounded transition-colors"
+        className="w-full bg-primary hover:bg-primary/90 disabled:bg-muted text-primary-foreground disabled:text-muted-foreground font-bold py-2 px-4 rounded transition-colors"
       >
         Add Task
       </button>

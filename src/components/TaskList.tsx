@@ -14,9 +14,9 @@ export default function TaskList({
 }: TaskListProps) {
   if (tasks.length === 0) {
     return (
-      <div className="text-center py-8 text-gray-500">
+      <div className="text-center py-8 text-muted-foreground">
         <svg
-          className="mx-auto h-12 w-12 text-gray-300"
+          className="mx-auto h-12 w-12 text-muted-foreground/50"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -28,7 +28,7 @@ export default function TaskList({
             d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
           />
         </svg>
-        <p className="mt-4 text-lg">No tasks yet</p>
+        <p className="mt-4 text-lg text-foreground">No tasks yet</p>
         <p className="text-sm">Add your first task to get started!</p>
       </div>
     );
